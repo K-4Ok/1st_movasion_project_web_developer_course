@@ -1,0 +1,179 @@
+:root {
+	--light: #F5F5F7;
+	--dark: #221F20;
+	--container-padding-horizontal: 13%;
+	--footer-padding-horizontal: 10%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul {
+	margin: 0;
+}
+
+ol[role="list"],
+ul[role="list"] {
+	list-style: none;
+	padding-inline: 0; /* эквивалентно padding-left:0 padding-right:0 */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-size: inherit;  /* наследует размер шрифта от родительского контейнера*/
+	font-weight: inherit;
+}
+
+img {
+	display: block;
+	max-inline-size: 100%;
+}
+
+html {
+	font-family: "Inter", sans-serif;
+}
+
+.container {
+	padding: 0 var(--container-padding-horizontal);
+}
+
+.promo {
+	position: relative;
+	min-height: 100vh; /*ensures that an element is at least as tall as 100% of the viewport height (the visible browser window).*/
+	background: url(../img/main_bg.jpg) center center / cover no-repeat;
+	padding-top: 75px;
+}
+.promo__title {
+	line-height: normal;
+	font-weight: 400;
+	font-size: 60px;
+	text-transform: uppercase;
+	color: var(--light, #F5F5F7);
+}
+.keywords {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	padding: 0px 360px;
+	background: linear-gradient(180deg, 
+		rgba(255, 255, 255, 0.04) 0%, 
+		rgba(255, 255, 255, 0.12) 50%, 
+		rgba(255, 255, 255, 0.2) 100%);
+	box-sizing: border-box;
+	li {
+		list-style-type: none; /* убирает кругляшки перед каждым элементом списка */
+		color: var(--light, #F5F5F7);
+		font-weight: 100;
+		font-size: 10px;
+		line-height: normal;
+	}
+}
+.promo__subtitle {
+	line-height: normal;
+	font-weight: 100;
+	font-size: 32px;
+	color: var(--light, #F5F5F7);
+	margin-top: 124px;
+}
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	width: 160px;
+	min-height: 38px; /*min-height и padding в кнопке ставятся с той целью чтобы кнопка 1) могла расширяться вниз если в неё при переводе попадет длинный текст 2) padding в 10px слева и справа, для того чтобы текст не выпадал за кнопку по горизонтали.*/
+	padding: 3px 10px;
+	margin-top: 20px;
+	border: 1px solid var(--light, #F5F5F7);
+	background: rgba(217, 217, 217, 0);
+	font-weight: 100;
+	font-size: 16px;
+	color: var(--light);
+	line-height: normal;
+	cursor: pointer; /* если при наведении на кнопку стрелка не превращается в курсор */
+}
+.promo__address {
+	margin-top: 100px;
+	font-weight: 100;
+	font-size: 16px;
+	color: var(--light, #F5F5F7);
+	line-height: normal;
+	address {
+		font-style: normal; /* по макету у нас адрес без курсива, однако в нормалайзе указан курсив. Тут мы повышаем специфичность с указанием html тега adress внутри класса promo__address и задаём font-style: normal */
+	}
+	a {
+		color: inherit; /*наследуем цвет у родителя у promo__address */
+		text-decoration: none; /* убираем нижнее подчеркивание */
+	}
+}
+
+.about {
+	background-color: var(--light);
+	padding-top: 80px;
+}
+.about__title{
+	font-style: italic;
+	font-weight: 400;
+	font-size: 12px;
+	color: var(--dark, #221F20);
+	line-height: normal;
+}
+.about__text {
+	width: 1100px;
+	margin-top: 20px;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 40px;
+	color: var(--dark, #221F20);
+	line-height: normal;
+	span {
+		color: #a5a5a5;
+	}
+}
+.services {
+	display: flex;
+	margin-top: 80px;
+	column-gap: 10px; /*тут даём вертикальный зазор между двумя вертикальными колонками в 10 пикселей. Делается это для того что если экран будет маленький чтобы тексты из 2 колонок не налезали друг на друга*/
+}
+.services__items {
+	width: 50%; /*чтобы сделать 2 колонки текста как в макете задаем ширину в 50% от родительской. Род-я это .services*/
+	ul {
+		margin-top: 20px; /*тут прикол в том что 10px берется от margin указанного в li ниже, и 10 даёт эта строка и того необходимые 20 px, чудеса ^_^ */
+		padding: 0px;
+			li {
+			list-style-type: none; /*убираем кругляшки у пунктов списка*/
+			margin-top: 10px;
+			font-weight: 400;
+			font-size: 16px;
+			color: var(--dark, #221F20);
+		}
+	}
+}
+.services__text {
+	width: 50%; /*тут так-же задаем 50% от род-ой ширины, это 2-я колонка*/
+	font-weight: 400;
+	line-height: normal;
+	font-size: 20px;
+	letter-spacing: 0.4px;
+	color: var(--dark, #221F20);
+}
+.services__item-subtitle {
+	font-style: italic;
+	font-weight: 400;
+	font-size: 16px;
+	color: var(--dark, #221F20);
+	line-height: normal;
+}
