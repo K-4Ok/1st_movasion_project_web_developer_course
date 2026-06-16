@@ -44,7 +44,14 @@ html {
 .container {
 	padding: 0 var(--container-padding-horizontal);
 }
-
+.title {
+	font-weight: 400;
+	font-size: 40px;
+	color: var(--dark, #221F20);
+	text-align: center;
+	font-style: normal;
+	line-height: normal;
+}
 .promo {
 	position: relative;
 	min-height: 100vh; /*ensures that an element is at least as tall as 100% of the viewport height (the visible browser window).*/
@@ -101,7 +108,7 @@ html {
 	background: rgba(217, 217, 217, 0);
 	font-weight: 100;
 	font-size: 16px;
-	color: var(--light);
+	color: var(--light, #F5F5F7);
 	line-height: normal;
 	cursor: pointer; /* если при наведении на кнопку стрелка не превращается в курсор */
 }
@@ -121,7 +128,7 @@ html {
 }
 
 .about {
-	background-color: var(--light);
+	background-color: var(--light, #F5F5F7);
 	padding-top: 80px;
 }
 .about__title{
@@ -176,4 +183,23 @@ html {
 	font-size: 16px;
 	color: var(--dark, #221F20);
 	line-height: normal;
+}
+.works {
+	background-color: var(--light, #F5F5F7);
+	padding-top: 80px;
+}
+.works__grid{
+	display: grid;
+	margin-top: 50px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr) 1.5fr;
+	/* grid-template-rows: repeat(2, 463px) 700px; */
+	gap: 50px 30px; /*row-gap coulumn-gap*/
+	img {
+		width:100%; /*fix того момента что при больших разрешениях мониторов фотки оставались маленькими, это для первого варианта с fr-ками. Тут длинна фото автоматически подстраивается под размеры гридов, а гриды автоматически подстраиваются под размер монитора через fr*/
+		/* height: 100%;
+		object-fit: cover;  */
+		/* тут height и object-fit используется в сочетании с пиксельной постановкой колонок грида grid-template-rows: repeat(2, 463px) 700px; как альтернативный вариант, но это вариант так себе*/
+		box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+	}
 }
